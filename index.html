@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annwoy Roy Choudhury | Quantum Physics & Tensor Networks</title>
+    <meta name="description" content="Academic homepage of Annwoy Roy Choudhury, Master's Thesis Research Scholar at IQOQI Innsbruck & IISER Mohali specializing in Quantum Information, Quantum Many-Body Physics, and Tensor Networks.">
+
+    <!-- MathJax for rendering inline LaTeX equations ($T_1$, $N^6$, etc.) -->
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <style>
+        :root {
+            --primary: #800020;       /* Burgundy from your LaTeX CV: RGB(128, 0, 32) */
+            --primary-dark: #640019;  /* Link color from your LaTeX CV: RGB(100, 0, 25) */
+            --primary-light: #fdf6f7; /* Soft burgundy tint for cards/badges */
+            --text-main: #1f2428;
+            --text-muted: #57606a;
+            --bg-body: #ffffff;
+            --bg-alt: #f8f9fa;
+            --border-color: #e1e4e8;
+            --max-width: 900px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            line-height: 1.65;
+            font-size: 16.5px;
+        }
+
+        /* Top Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+            padding: 0.75rem 1.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.1rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Container */
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        /* Header / Hero Section */
+        header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 2rem;
+            margin-bottom: 2.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .header-content {
+            flex: 1;
+        }
+
+        /* Optional Profile Photo Styling */
+        .profile-photo {
+            width: 145px;
+            height: 145px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            flex-shrink: 0;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.3rem;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+        }
+
+        .role-block {
+            margin-bottom: 0.55rem;
+            font-size: 1rem;
+        }
+
+        .role-title {
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .role-inst {
+            color: var(--text-muted);
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        /* Contact & Social Links Bar */
+        .contact-bar {
+            margin-top: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.86rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.42rem 0.85rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            background-color: var(--bg-alt);
+            transition: all 0.15s ease;
+        }
+
+        .btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            color: #ffffff;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 2.5rem;
+            scroll-margin-top: 4rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.45rem;
+            border-bottom: 1px solid var(--primary);
+            padding-bottom: 0.25rem;
+            margin-bottom: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+
+        p {
+            margin-bottom: 0.85rem;
+            text-align: justify;
+        }
+
+        a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-dark);
+        }
+
+        a:hover {
+            color: var(--primary);
+            border-bottom-style: solid;
+        }
+
+        /* Experience & Education Entries */
+        .entry {
+            margin-bottom: 1.5rem;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            font-size: 1.06rem;
+            color: var(--text-main);
+        }
+
+        .entry-location {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .entry-subheader {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .entry-subheader strong {
+            font-style: normal;
+            color: var(--text-main);
+        }
+
+        ul.entry-list {
+            padding-left: 1.35rem;
+            margin-top: 0.35rem;
+        }
+
+        ul.entry-list li {
+            margin-bottom: 0.35rem;
+            font-size: 0.97rem;
+        }
+
+        .repo-badge {
+            display: inline-block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border: 1px solid #e5c5cd;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.3rem;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+
+        .repo-badge:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        /* Publications List */
+        .pub-list {
+            padding-left: 1.35rem;
+        }
+
+        .pub-list li {
+            margin-bottom: 0.7rem;
+        }
+
+        .status-tag {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            background: var(--bg-alt);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.1rem 0.45rem;
+            border-radius: 4px;
+            margin-left: 0.3rem;
+        }
+
+        /* Talks */
+        .talk-item {
+            margin-bottom: 1rem;
+        }
+
+        .talk-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .talk-title {
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .talk-meta {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.94rem;
+        }
+
+        .talk-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 0.15rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        /* Skills & Coursework Grid */
+        .skills-box {
+            background-color: var(--bg-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.1rem 1.3rem;
+        }
+
+        .skills-box p {
+            margin-bottom: 0.65rem;
+            text-align: left;
+            font-size: 0.96rem;
+        }
+
+        .skills-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.88em;
+            background-color: #eef1f4;
+            padding: 0.1rem 0.35rem;
+            border-radius: 3px;
+        }
+
+        /* References Grid */
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .ref-card {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.9rem 1.1rem;
+            background-color: var(--bg-alt);
+            font-size: 0.94rem;
+        }
+
+        .ref-card strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        footer {
+            margin-top: 3.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+            }
+            h1 {
+                font-size: 1.85rem;
+            }
+            .entry-header, .entry-subheader, .talk-header {
+                flex-direction: column;
+                gap: 0.1rem;
+            }
+            p {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-brand">Annwoy Roy Choudhury</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#talks">Talks</a></li>
+                <li><a href="#achievements">Awards</a></li>
+                <li><a href="#skills">Skills &amp; Courses</a></li>
+                <li><a href="CV_Annwoy_Roy_Choudhury.pdf" target="_blank">CV (PDF)</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Header Section -->
+        <header>
+            <div class="header-content">
+                <h1>Annwoy Roy Choudhury</h1>
+                
+                <div class="role-block">
+                    <span class="role-title">Master's Thesis Research Scholar</span>
+                    <span class="role-inst">Institute for Quantum Optics and Quantum Information (IQOQI) &amp; University of Innsbruck (UIBK), Innsbruck, Austria</span>
+                </div>
+
+                <div class="role-block">
+                    <span class="role-title">Fifth-Year Integrated BS-MS Dual Degree Student (equivalent to BSc + MSc)</span>
+                    <span class="role-inst">Department of Physical Sciences, Indian Institute of Science Education and Research (IISER), Mohali, India</span>
+                </div>
+
+                <div class="contact-bar">
+                    <a href="CV_Annwoy_Roy_Choudhury.pdf" class="btn btn-primary" target="_blank">Download Full CV (PDF)</a>
+                    <a href="mailto:ms22095@iisermohali.ac.in" class="btn">ms22095@iisermohali.ac.in</a>
+                    <a href="mailto:annoyrc@gmail.com" class="btn">annoyrc@gmail.com</a>
+                    <a href="https://github.com/arcquantum" class="btn" target="_blank" rel="noopener">GitHub (@arcquantum)</a>
+                    <a href="https://www.linkedin.com/in/annwoyrc/" class="btn" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+
+            <!-- OPTIONAL: If you upload a square photo named "profile.jpg" to your repository, 
+                 delete the comment markers around the <img> tag below to display it: -->
+            <!-- <img src="profile.jpg" alt="Annwoy Roy Choudhury" class="profile-photo"> -->
+        </header>
+
+        <!-- About / Career Objectives -->
+        <section id="about">
+            <h2>Research Interests &amp; Objectives</h2>
+            <p>
+                I pursue research in theoretical and computational <strong>Quantum Physics</strong>, specializing in <strong>Quantum Information</strong>, <strong>Quantum Many-Body Physics</strong>, and <strong>Tensor Networks</strong>. My goal is to develop mathematical and computational frameworks that bridge quantum information with quantum field theory, relativity, and the foundations of quantum mechanics. I am deeply interested in rigorously solving fundamental problems in physics, with a particular focus on understanding entanglement dynamics, open-system many-body phenomena, and quantum metrology in complex quantum systems.
+            </p>
+        </section>
+
+        <!-- Research Experience -->
+        <section id="research">
+            <h2>Research Experience</h2>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Master's Thesis Research Scholar — Institut für Quantenoptik und Quanteninformation (IQOQI)</span>
+                    <span class="entry-location">Innsbruck, Austria</span>
+                </div>
+                <div class="entry-subheader">
+                    <span>Institut für Theoretische Physik | <strong>Supervisor: Prof. Dr. Klemens Hammerer</strong></span>
+                    <span>Jun 2026 – Present</span>
+                </div>
+                <ul class="entry-list">
+                    <li>
+                        Simulating highly entangled, non-Gaussian quantum states for sub-SQL metrological precision using Matrix Product States (MPS) and Matrix Product Operators (MPO), analyzing One-Axis Twisting (OAT) and power-law Ising Hamiltonians.
+                        <a href="https://github.com/arcquantum/TenPyforQuMy" class="repo-badge" target="_blank" rel="noopener">GitHub Repository</a>
+                    </li>
+                    <li>Developing novel open-system tensor network architectures for quantum metrology applications, employing Bañuls local-equilibration and Tensor Jump Methods (TJM) to capture dynamics under local $T_1$ relaxation and $T_2$ dephasing.</li>
+                    <li>Analyzing the generalized Ramsey echo landscape, demonstrating Heisenberg-like scaling for Over-Un-Twisting (OUT) protocols and mapping algorithmic breakdown floors at large system sizes ($N=200$).</li>
+                    <li>Developing a QFI-preserving compression framework for LPTN tensor networks, with rigorous constraints on metrologically active moments and provable positivity preservation.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Nordita Summer Fellow — The Nordic Institute for Theoretical Physics (NORDITA)</span>
+                    <span class="entry-location">Stockholm, Sweden</span>
+                </div>
+                <div class="entry-subheader">
+                    <span>Department of Physics, Stockholm University (remote) | <strong>Supervisors: Dr. Sofia Qvarfort, Dr. Jack Clarke</strong></span>
+                    <span>Aug 2025 – Present</span>
+                </div>
+                <ul class="entry-list">
+                    <li>Developed a displaced-equilibrium protocol to bypass the Rotating-Wave Approximation (RWA) parity filter, promoting odd Taylor coefficients into the measurable even sector via binomial mixing.</li>
+                    <li>Derived bounds for optimal probe states, proving that estimating $K$ parameters with an invertible Quantum Fisher Information (QFI) matrix fundamentally requires at least $K+1$ Fock components.</li>
+                    <li>Demonstrated Heisenberg-like scaling ($N^6$) for a minimal three-component optimal probe state under a two-parameter Newtonian gravity model, establishing the flat geometry of the model-independent parameter manifold.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Research Scholar — Zentrum für Optische Quantentechnologien, Universität Hamburg (UHH)</span>
+                    <span class="entry-location">Hamburg, Germany</span>
+                </div>
+                <div class="entry-subheader">
+                    <span>Institute for Quantum Physics | <strong>Supervisor: Prof. Dr. Peter Schmelcher</strong></span>
+                    <span>May 2025 – Nov 2025</span>
+                </div>
+                <ul class="entry-list">
+                    <li>
+                        Developed a modular Python framework from scratch for MPS functionalities, tensor decompositions (SVD, QR, RQ), and QAOA simulation.
+                        <a href="https://github.com/arcquantum/Tensor-Networks-and-QAOA" class="repo-badge" target="_blank" rel="noopener">GitHub Repository</a>
+                    </li>
+                    <li>Analyzed exact vs. compressed simulation strategies, demonstrating that global Variational compression consistently outperforms greedy SVD methods.</li>
+                    <li>Investigated infidelity scaling across different graph topologies (Linear Chain vs. Complete Graph), identifying fidelity-floor limits and validating the Multiplicative Fidelity Law for estimating inexact overlaps.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Research Scholar — Max-Planck-Institut für Kernphysik (MPIK)</span>
+                    <span class="entry-location">Heidelberg, Germany</span>
+                </div>
+                <div class="entry-subheader">
+                    <span>Quantum Dynamics and Control Division | <strong>Supervisor: Prof. Dr. Thomas Pfeifer</strong></span>
+                    <span>May 2024 – Sep 2024</span>
+                </div>
+                <ul class="entry-list">
+                    <li>Leveraged <code>QuTiP</code> to solve the time-dependent Schrödinger equation to simulate optical density spectra for Hydrogen atoms interacting with short laser pulses encoding handwritten digits.</li>
+                    <li>Utilized Fourier transformations to relate dipole responses to optical density, analyzing transition probabilities and population dynamics via Fano lineshapes.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Summer Intern — Indian Statistical Institute (ISI)</span>
+                    <span class="entry-location">Kolkata, India</span>
+                </div>
+                <div class="entry-subheader">
+                    <span>Physics and Applied Mathematics Unit | <strong>Supervisor: Dr. Ramij Rahaman</strong></span>
+                    <span>Jun 2023 – Jul 2023</span>
+                </div>
+                <ul class="entry-list">
+                    <li>Explored fundamental literature in Quantum Circuits and systematically solved algorithmic problems in Quantum Error Correcting Codes.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Publications & Preprints -->
+        <section id="publications">
+            <h2>Publications &amp; Preprints</h2>
+            <ul class="pub-list">
+                <li>
+                    <strong>A. Roy Choudhury</strong>, J. Clarke, S. Qvarfort.
+                    <em>"Quantum reconstruction of arbitrary potentials with a displaced mechanical oscillator."</em>
+                    <span class="status-tag">Manuscript in preparation (2026)</span>
+                </li>
+                <li>
+                    <strong>A. Roy Choudhury</strong>, J. Clarke, S. Qvarfort.
+                    <em>"Seeing odd forces with a quantum oscillator: displaced sensing and the multiparameter bound."</em>
+                    <span class="status-tag">Manuscript in preparation (2026)</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <h2>Education</h2>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Universität Innsbruck (UIBK)</span>
+                    <span class="entry-location">Innsbruck, Tirol, Austria</span>
+                </div>
+                <div class="entry-subheader">
+                    <span>Master's Thesis Research, Theoretical Physics</span>
+                    <span>Jun 2026 – Present</span>
+                </div>
+                <ul class="entry-list">
+                    <li>Long-term research conducted as part of the integrated BS-MS program of IISER Mohali.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Indian Institute of Science Education and Research (IISER)</span>
+                    <span class="entry-location">Mohali, Punjab, India</span>
+                </div>
+                <div class="entry-subheader">
+                    <span>Integrated BS-MS Dual Degree in Physics (five-year program, equivalent to BSc + MSc) | Minor: Quantum Information Science</span>
+                    <span>Nov 2022 – Present</span>
+                </div>
+                <ul class="entry-list">
+                    <li><strong>Cumulative Point Index (CPI):</strong> 9.0 out of 10</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Bidhannagar Government High School</span>
+                    <span class="entry-location">Salt Lake, West Bengal, India</span>
+                </div>
+                <div class="entry-subheader">
+                    <span>Higher Secondary (12th Grade) | Percentile: 99.66 | Marks: 93.00%</span>
+                    <span>Jun 2019 – May 2021</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Talks & Presentations -->
+        <section id="talks">
+            <h2>Selected Talks &amp; Presentations</h2>
+
+            <div class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-title">Reconstructing Unknown Potential with a Quantum Oscillator</span>
+                    <span class="talk-meta">Universität Innsbruck &middot; Oct 2026</span>
+                </div>
+                <div class="talk-desc">Discussed work as a Nordita Fellow on the reconstruction of arbitrary unknown potentials, bypassing the parity filter imposed by the Rotating Wave Approximation, and reaching Heisenberg-like scaling.</div>
+            </div>
+
+            <div class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-title">Dynamic Critical Phenomena: The Hohenberg-Halperin Classification</span>
+                    <span class="talk-meta">IISER Mohali &middot; Apr 2026</span>
+                </div>
+                <div class="talk-desc">Analyzed the Hohenberg-Halperin classification and compared stochastic Langevin equations (Models A and B) to describe critical slowing down near phase transitions.</div>
+            </div>
+
+            <div class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-title">Rigorous Classification of 1D Gapped Quantum Phases via Matrix Product States</span>
+                    <span class="talk-meta">IISER Mohali &middot; Apr 2026</span>
+                </div>
+                <div class="talk-desc">Mapped the transition from Landau Symmetry Breaking to Symmetry-Protected Topological (SPT) Order using group cohomology and Matrix Product States.</div>
+            </div>
+
+            <div class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-title">Fidelity Limits in Matrix Product State Simulation of Max-Cut QAOA [Poster]</span>
+                    <span class="talk-meta">QFTA Conference &middot; Dec 2025</span>
+                </div>
+                <div class="talk-desc">Analyzed infidelity and computational limits in simulating QAOA circuits via Matrix Product States.</div>
+            </div>
+
+            <div class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-title">Classical Simulation of Quantum Circuits using Tensor Networks</span>
+                    <span class="talk-meta">Universität Hamburg &middot; Jul 2025</span>
+                </div>
+                <div class="talk-desc">Presented methodologies for classically simulating QAOA and evaluated the performance of tensor network compression algorithms.</div>
+            </div>
+
+            <div class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-title">On the Reality of Quantum State: PBR Theorem</span>
+                    <span class="talk-meta">IISER Mohali &middot; Apr 2025</span>
+                </div>
+                <div class="talk-desc">Discussed the PBR theorem's implications for the ontological status of quantum states.</div>
+            </div>
+
+            <div class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-title">Entanglement and Quantum Phase Transitions</span>
+                    <span class="talk-meta">IISER Mohali &middot; Nov 2024</span>
+                </div>
+                <div class="talk-desc">Discussed tensor networks and quantum information tools to analyze quantum phase transitions.</div>
+            </div>
+
+            <div class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-title">What the Heck is Quantum Mechanics?</span>
+                    <span class="talk-meta">IISER Mohali &middot; Nov 2023</span>
+                </div>
+                <div class="talk-desc">Delivered an introductory presentation on the foundational postulates and phenomena of quantum mechanics.</div>
+            </div>
+        </section>
+
+        <!-- Scholastic Achievements -->
+        <section id="achievements">
+            <h2>Scholastic Achievements</h2>
+            <ul class="entry-list">
+                <li><strong>ICTS-TIFR Long Term Visiting Students Program Fellow:</strong> Selected to work with Prof. Manas Kulkarni at the International Centre for Theoretical Sciences (ICTS-TIFR), Bengaluru, India [April 2026]. <em>(Offer declined)</em></li>
+                <li><strong>IBM Quantum Excellence Badge Awardee:</strong> Qiskit Global Summer School (Covering modern quantum computing, error mitigation, and simulating molecular Hamiltonians with SQD) [July 2025].</li>
+                <li><strong>IASc-INSA-NASI Summer Research Fellow:</strong> Awarded a two-month research fellowship to work with Prof. M. Senthilvelan at Bharathidasan University, Tiruchirapalli, India [April 2024]. <em>(Offer declined)</em></li>
+                <li><strong>Regional Level Awardee:</strong> Madhava Mathematics Competition organised by HBCSE, T.I.F.R, Mumbai [April 2023].</li>
+                <li><strong>First Place for Outstanding Achievement Awardee:</strong> American Mathematical Competitions 12 (AMC 12) [April 2020].</li>
+                <li><strong>SAT India Top Performer Awardee:</strong> 99th Percentile. Mathematics: 800/800 [Dec 2020].</li>
+            </ul>
+        </section>
+
+        <!-- Technical Skills & Relevant Coursework -->
+        <section id="skills">
+            <h2>Technical Skills &amp; Relevant Coursework</h2>
+            <div class="skills-box">
+                <p><strong>Programming &amp; Scientific Computing:</strong> Python (Advanced), TeNPy, QuTiP, Qiskit, C, NumPy, SciPy (incl. <code>scipy.optimize</code>, <code>scipy.linalg</code>), mpi4py, h5py, matplotlib, LaTeX, Git.</p>
+                <p><strong>Physics Coursework:</strong> Quantum Phases of Matter and Phase Transitions, Statistical Physics of Fields, Quantum Computation and Quantum Information, Open Quantum Systems, Foundations of Quantum Mechanics, Implementations of Quantum Information Processing, Solid State Physics, Atomic and Molecular Physics, Nuclear Physics, Modelling Complex Systems, Classical Mechanics (2 Courses), Quantum Mechanics (2 Courses), Electromagnetism (2 Courses), Waves and Optics, Thermodynamics and Statistical Mechanics (2 Courses).</p>
+                <p><strong>Mathematics Coursework:</strong> Real Analysis, Group Theory, Linear Algebra, Differential Geometry, Statistics and Probability, Mathematical Methods for Physicists.</p>
+            </div>
+        </section>
+
+        <!-- Academic Activities, Extracurriculars & Languages -->
+        <section id="activities">
+            <h2>Academic Activities, Outreach &amp; Extracurriculars</h2>
+            <ul class="entry-list">
+                <li><strong>Teaching Assistant:</strong> Electromagnetism, IISER Mohali.</li>
+                <li><strong>Pedagogical Outreach:</strong> Created a public video lecture series on <a href="https://www.youtube.com/playlist?list=PL-5Et_uEF2qZYY24FtsXLNeh1OMmrsikm" target="_blank" rel="noopener">Differential Geometry (YouTube Playlist)</a>.</li>
+                <li><strong>Editorial Leadership:</strong> Senior Editor for <em>Manthan Magazine</em>, IISER Mohali.</li>
+                <li><strong>Scientific Communication:</strong> Presented research work to the public at Open House Day, MPIK, Heidelberg.</li>
+                <li><strong>Photography:</strong> Wildlife, astro, street, and travel photography with acceptances in various National and International Photography Salons; volunteered as Official Photographer in multiple events.</li>
+                <li><strong>Birding:</strong> Certified birdwatcher and bird population counter.</li>
+                <li><strong>Music &amp; Literature:</strong> First Place in State Level Rabindra Sangeet Competition; published original Bengali and English literature, performed as a vocalist, and directed self-written musical scripts.</li>
+                <li><strong>Languages:</strong> Bengali (Native), English (Full Professional), German (Elementary), Spanish (Elementary).</li>
+            </ul>
+        </section>
+
+        <!-- References -->
+        <section id="references">
+            <h2>Academic References</h2>
+            <div class="ref-grid">
+                <div class="ref-card">
+                    <strong>Prof. Dr. Klemens Hammerer</strong>
+                    Institute for Theoretical Physics<br>
+                    University of Innsbruck<br>
+                    <a href="mailto:klemens.hammerer@uibk.ac.at">klemens.hammerer@uibk.ac.at</a>
+                </div>
+                <div class="ref-card">
+                    <strong>Dr. Sofia Qvarfort</strong>
+                    Department of Physics<br>
+                    Stockholm University &amp; NORDITA<br>
+                    <a href="mailto:sofia.qvarfort@fysik.su.se">sofia.qvarfort@fysik.su.se</a>
+                </div>
+                <div class="ref-card">
+                    <strong>Prof. Dr. Thomas Pfeifer</strong>
+                    Quantum Dynamics and Control Division<br>
+                    Max-Planck-Institut für Kernphysik, Heidelberg<br>
+                    <a href="mailto:thomas.pfeifer@mpi-hd.mpg.de">thomas.pfeifer@mpi-hd.mpg.de</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2026 Annwoy Roy Choudhury &middot; Hosted on GitHub Pages
+        </footer>
+    </main>
+
+</body>
+</html>
